@@ -1,0 +1,674 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: pantry item card renders a stable expiry state with a fixed local date 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#3D6246",
+        "borderRadius": 20,
+        "flex": 1,
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    pointerEvents="none"
+    style={
+      {
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 22,
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      aria-hidden="true"
+      bbHeight={27}
+      bbWidth={27}
+      className="lucide lucide-check"
+      fill="none"
+      focusable={false}
+      height={27}
+      meetOrSlice={0}
+      minX={0}
+      minY={0}
+      stroke="#D5E9AD"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "flex": 0,
+            "height": 27,
+            "width": 27,
+          },
+        ]
+      }
+      vbHeight={24}
+      vbWidth={24}
+      width={27}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <RNSVGGroup
+        fill={null}
+        propList={
+          [
+            "fill",
+            "stroke",
+            "strokeWidth",
+            "strokeLinecap",
+            "strokeLinejoin",
+          ]
+        }
+        stroke={
+          {
+            "payload": 4292209069,
+            "type": 0,
+          }
+        }
+        strokeLinecap={1}
+        strokeLinejoin={1}
+        strokeWidth={2}
+      >
+        <RNSVGPath
+          d="M20 6 9 17l-5-5"
+          fill={null}
+          propList={
+            [
+              "fill",
+              "stroke",
+              "strokeWidth",
+              "strokeLinecap",
+              "strokeLinejoin",
+            ]
+          }
+          stroke={
+            {
+              "payload": 4292209069,
+              "type": 0,
+            }
+          }
+          strokeLinecap={1}
+          strokeLinejoin={1}
+          strokeWidth={2}
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <View
+    collapsable={false}
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      {
+        "flex": 1,
+        "transform": [
+          {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "#fff",
+          "borderColor": "#E2E7DC",
+          "borderRadius": 17,
+          "borderWidth": 1,
+          "flex": 1,
+          "opacity": 1,
+          "overflow": "hidden",
+          "transform": [
+            {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Open Ripe avocados"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "height": 145,
+              "justifyContent": "center",
+              "overflow": "hidden",
+              "position": "relative",
+            },
+            {
+              "backgroundColor": "#EAF0DF",
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "backgroundColor": "#F1F3E9",
+                "borderRadius": 33.35,
+                "height": 145,
+                "justifyContent": "center",
+                "overflow": "hidden",
+                "width": 145,
+              },
+              {
+                "borderRadius": 0,
+                "height": "100%",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Image
+            accessibilityLabel="Ripe avocados"
+            resizeMode="contain"
+            source={
+              {
+                "testUri": "../../../assets/food/catalog/avocados.png",
+              }
+            }
+            style={
+              {
+                "height": "82%",
+                "width": "82%",
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "borderRadius": 7,
+                "flexDirection": "row",
+                "gap": 5,
+                "left": 11,
+                "paddingHorizontal": 8,
+                "paddingVertical": 6,
+                "position": "absolute",
+                "top": 11,
+              },
+              {
+                "backgroundColor": "#FCF0E3",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#B86B34",
+                "borderRadius": 3,
+                "height": 5,
+                "width": 5,
+              }
+            }
+          />
+          <Text
+            style={
+              [
+                {
+                  "color": "#243C2D",
+                  "fontFamily": "DMSans_400Regular",
+                  "fontSize": 14,
+                },
+                {
+                  "color": "#B86B34",
+                  "fontFamily": "DMSans_700Bold",
+                  "fontSize": 10,
+                },
+              ]
+            }
+          >
+            Use tomorrow
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFFD9",
+              "borderRadius": 20,
+              "bottom": 10,
+              "height": 25,
+              "justifyContent": "center",
+              "position": "absolute",
+              "right": 10,
+              "width": 25,
+            }
+          }
+        >
+          <RNSVGSvgView
+            align="xMidYMid"
+            aria-hidden="true"
+            bbHeight={15}
+            bbWidth={15}
+            className="lucide lucide-arrow-up-right"
+            fill="none"
+            focusable={false}
+            height={15}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            stroke="#243C2D"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                {
+                  "flex": 0,
+                  "height": 15,
+                  "width": 15,
+                },
+              ]
+            }
+            vbHeight={24}
+            vbWidth={24}
+            width={15}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <RNSVGGroup
+              fill={null}
+              propList={
+                [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={
+                {
+                  "payload": 4280564781,
+                  "type": 0,
+                }
+              }
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={2}
+            >
+              <RNSVGPath
+                d="M7 7h10v10"
+                fill={null}
+                propList={
+                  [
+                    "fill",
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={
+                  {
+                    "payload": 4280564781,
+                    "type": 0,
+                  }
+                }
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={2}
+              />
+              <RNSVGPath
+                d="M7 17 17 7"
+                fill={null}
+                propList={
+                  [
+                    "fill",
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={
+                  {
+                    "payload": 4280564781,
+                    "type": 0,
+                  }
+                }
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={2}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "gap": 7,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#243C2D",
+                "fontFamily": "DMSans_400Regular",
+                "fontSize": 14,
+              },
+              [
+                {
+                  "color": "#65725F",
+                  "fontFamily": "DMSans_700Bold",
+                  "fontSize": 11,
+                  "letterSpacing": 1.6,
+                },
+                {
+                  "fontSize": 9,
+                  "letterSpacing": 1.1,
+                },
+              ],
+            ]
+          }
+        >
+          PRODUCE
+        </Text>
+        <View
+          accessibilityLabel="Edit Ripe avocados"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "color": "#243C2D",
+                  "fontFamily": "DMSans_400Regular",
+                  "fontSize": 14,
+                },
+                {
+                  "fontFamily": "DMSans_700Bold",
+                  "fontSize": 15,
+                },
+              ]
+            }
+          >
+            Ripe avocados
+          </Text>
+        </View>
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+              {
+                "gap": 5,
+                "marginTop": 1,
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              [
+                {
+                  "color": "#65725F",
+                  "fontFamily": "DMSans_400Regular",
+                  "fontSize": 14,
+                },
+                {
+                  "flexShrink": 1,
+                  "fontSize": 11,
+                  "lineHeight": 17,
+                },
+              ]
+            }
+          >
+            2 pcs · Pantry
+          </Text>
+        </View>
+        <View
+          accessibilityLabel="Mark Ripe avocados as enjoyed"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+              {
+                "alignSelf": "flex-start",
+                "gap": 5,
+                "minHeight": 38,
+                "opacity": 1,
+                "paddingTop": 8,
+              },
+            ]
+          }
+        >
+          <RNSVGSvgView
+            align="xMidYMid"
+            aria-hidden="true"
+            bbHeight={14}
+            bbWidth={14}
+            className="lucide lucide-check"
+            fill="none"
+            focusable={false}
+            height={14}
+            meetOrSlice={0}
+            minX={0}
+            minY={0}
+            stroke="#3D6246"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "borderWidth": 0,
+                },
+                {
+                  "flex": 0,
+                  "height": 14,
+                  "width": 14,
+                },
+              ]
+            }
+            vbHeight={24}
+            vbWidth={24}
+            width={14}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <RNSVGGroup
+              fill={null}
+              propList={
+                [
+                  "fill",
+                  "stroke",
+                  "strokeWidth",
+                  "strokeLinecap",
+                  "strokeLinejoin",
+                ]
+              }
+              stroke={
+                {
+                  "payload": 4282212934,
+                  "type": 0,
+                }
+              }
+              strokeLinecap={1}
+              strokeLinejoin={1}
+              strokeWidth={2}
+            >
+              <RNSVGPath
+                d="M20 6 9 17l-5-5"
+                fill={null}
+                propList={
+                  [
+                    "fill",
+                    "stroke",
+                    "strokeWidth",
+                    "strokeLinecap",
+                    "strokeLinejoin",
+                  ]
+                }
+                stroke={
+                  {
+                    "payload": 4282212934,
+                    "type": 0,
+                  }
+                }
+                strokeLinecap={1}
+                strokeLinejoin={1}
+                strokeWidth={2}
+              />
+            </RNSVGGroup>
+          </RNSVGSvgView>
+          <Text
+            style={
+              [
+                {
+                  "color": "#243C2D",
+                  "fontFamily": "DMSans_400Regular",
+                  "fontSize": 14,
+                },
+                {
+                  "color": "#3D6246",
+                  "fontFamily": "DMSans_700Bold",
+                  "fontSize": 11,
+                },
+              ]
+            }
+          >
+            Mark as enjoyed
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

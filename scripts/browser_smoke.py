@@ -1,0 +1,78 @@
+"""Browser acceptance checks; requires Python Playwright + Chromium."""
+import os
+import shutil
+from pathlib import Path
+from playwright.sync_api import sync_playwright, expect
+import json
+
+out=Path('.local/checks/screenshots');out.mkdir(parents=True,exist_ok=True)
+results=[]
+with sync_playwright() as p:
+    browser=p.chromium.launch(executable_path=os.environ.get('CHROMIUM_PATH') or shutil.which('chromium') or shutil.which('chromium-browser'),headless=True,args=['--no-sandbox'])
+    for kind, viewport in [('mobile',{'width':393,'height':852}),('desktop',{'width':1440,'height':1100})]:
+        context=browser.new_context(viewport=viewport,device_scale_factor=1)
+        page=context.new_page();errors=[]
+        page.on('pageerror',lambda e:errors.append(str(e)))
+        page.goto('http://localhost:8081',wait_until='domcontentloaded')
+        page.get_by_text('Just looking? Explore the preview').click(timeout=60000)
+        expect(page.get_by_test_id('overview-screen')).to_be_visible(timeout=30000)
+        page.screenshot(path=str(out/f'overview-{kind}.png'),full_page=True)
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'Horizontal overflow on overview'
+        page.goto('http://localhost:8081/pantry')
+        expect(page.get_by_text('Your pantry, at a glance.')).to_be_visible(timeout=30000)
+        page.screenshot(path=str(out/f'pantry-{kind}.png'),full_page=True)
+        page.get_by_role('button',name='Add an item',exact=True).last.click()
+        expect(page.get_by_label('Find a food',exact=True)).to_be_visible()
+        page.screenshot(path=str(out/f'editor-{kind}.png'),full_page=True)
+        page.get_by_label('Find a food',exact=True).fill('Defense apples')
+        page.get_by_role('button',name='Use custom name',exact=True).click()
+        page.get_by_label('Quantity',exact=True).fill('3')
+        page.get_by_label('Expiry / best-before date',exact=True).fill('2026-12-15')
+        page.get_by_role('button',name='Add to my pantry',exact=True).click()
+        page.get_by_label('Search pantry',exact=True).fill('Defense apples')
+        expect(page.get_by_role('button',name='Open Defense apples',exact=True)).to_be_visible()
+        page.reload()
+        page.get_by_label('Search pantry',exact=True).fill('Defense apples')
+        expect(page.get_by_role('button',name='Open Defense apples',exact=True)).to_be_visible()
+        page.get_by_role('button',name='Open Defense apples',exact=True).click()
+        page.get_by_label('Item name',exact=True).fill('Defense apples updated')
+        page.get_by_label('Quantity',exact=True).fill('4')
+        page.get_by_role('button',name='Choose expiry date').click()
+        expect(page.get_by_text('Pick a date')).to_be_visible()
+        page.get_by_role('button',name='2026-12-20',exact=True).click()
+        page.get_by_role('button',name='Save changes',exact=True).click()
+        page.get_by_label('Search pantry',exact=True).fill('Defense apples')
+        expect(page.get_by_role('button',name='Open Defense apples updated',exact=True)).to_be_visible()
+        page.get_by_role('button',name='Mark Defense apples updated as enjoyed',exact=True).click()
+        expect(page.get_by_role('button',name='Open Defense apples updated',exact=True)).not_to_be_visible()
+        page.get_by_role('button',name='History',exact=True).click()
+        expect(page.get_by_role('button',name='Open Defense apples updated',exact=True)).to_be_visible()
+        page.get_by_role('button',name='Open Defense apples updated',exact=True).click()
+        page.get_by_role('button',name='Put back in pantry',exact=True).click()
+        page.get_by_role('button',name='All items (9)',exact=True).click()
+        page.get_by_label('Search pantry',exact=True).fill('Defense apples')
+        page.get_by_role('button',name='Open Defense apples updated',exact=True).click()
+        page.get_by_role('button',name='Delete item',exact=True).click()
+        expect(page.get_by_text('Make a little space?')).to_be_visible()
+        page.get_by_role('button',name='Cancel',exact=True).last.click()
+        expect(page.get_by_text('Make a little space?')).not_to_be_visible()
+        expect(page.get_by_label('Item name',exact=True)).to_have_value('Defense apples updated')
+        page.get_by_role('button',name='Delete item',exact=True).click()
+        page.get_by_role('button',name='Delete item',exact=True).last.click()
+        page.get_by_label('Search pantry',exact=True).fill('Defense apples')
+        expect(page.get_by_role('button',name='Open Defense apples updated',exact=True)).not_to_be_visible()
+        page.goto('http://localhost:8081/insights')
+        expect(page.get_by_text('Good food, put to good use.')).to_be_visible()
+        page.screenshot(path=str(out/f'impact-{kind}.png'),full_page=True)
+        page.goto('http://localhost:8081/profile')
+        expect(page.get_by_text('Make yourself at home.',exact=True)).to_be_visible()
+        page.screenshot(path=str(out/f'account-{kind}.png'),full_page=True)
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'Horizontal overflow on profile'
+        page.get_by_role('button',name='Leave preview / sign in',exact=True).click()
+        expect(page.get_by_text('A fresher kind of everyday.')).to_be_visible()
+        assert not errors,errors
+        results.append({'viewport':kind,'flows':'preview, validation, create, read, reload persistence, edit, calendar, enjoy, history, restore, cancel delete, delete, impact, account, sign-out','pageErrors':errors,'passed':True})
+        print('PASS',kind,flush=True)
+        context.close()
+    browser.close()
+Path('.local/checks/browser-checks.json').write_text(json.dumps(results,indent=2)+'\n')

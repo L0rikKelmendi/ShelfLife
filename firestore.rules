@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    function validItem(data) {
+      return data.keys().hasAll(['name', 'quantity', 'unit', 'category', 'storageLocation', 'expiresOn', 'reminder', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['name', 'quantity', 'unit', 'category', 'storageLocation', 'expiresOn', 'reminder', 'status', 'createdAt', 'updatedAt'])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 80
+        && data.quantity is number && data.quantity > 0 && data.quantity <= 9999
+        && data.unit in ['pcs', 'g', 'kg', 'ml', 'l', 'packs']
+        && data.category in ['Produce', 'Dairy', 'Meat & fish', 'Grains', 'Other']
+        && data.storageLocation in ['Fridge', 'Freezer', 'Pantry']
+        && data.expiresOn is string && data.expiresOn.matches('20[0-9]{2}-[0-9]{2}-[0-9]{2}|2100-[0-9]{2}-[0-9]{2}')
+        && data.reminder is bool && data.status in ['active', 'used', 'wasted']
+        && data.createdAt is timestamp && data.updatedAt == request.time;
+    }
+    match /users/{uid}/items/{itemId} {
+      allow read, delete: if owner(uid);
+      allow create: if owner(uid) && validItem(request.resource.data)
+        && request.resource.data.createdAt == request.time && request.resource.data.status == 'active';
+      allow update: if owner(uid) && validItem(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+    }
+  }
+}
